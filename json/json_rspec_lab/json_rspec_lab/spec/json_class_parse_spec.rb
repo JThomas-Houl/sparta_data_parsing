@@ -12,26 +12,25 @@ describe 'Testing the exchange rates' do
   end
 
   it 'should contain the base as EUR' do
-    expect(@exchange_rates.json_file['base']).to eq "EUR"
+    expect(@exchange_rates.get_base_value).to eq "EUR"
     
   end
 
   it "Should have a date string" do
-    expect(@exchange_rates.json_file['date']).to be_a(String)
+    expect(@exchange_rates.get_date_string).to be_a(String)
 
   end
 
   it "should countain 31 rates" do
-    expect(@exchange_rates.json_file['rates'].count).to be 31
+    expect(@exchange_rates.get_rates_number).to be 31
     
   end
 
   it "should all rates should be Floats" do
-    
-    @exchange_rates.json_file['rates'].values.each do |i|
+    @exchange_rates.json_file['rates'].each do |k,i|
       expect(i).to be_a(Float)
     end
-
+    
   end
   
 

@@ -11,8 +11,19 @@ class ParseJson
     @json_file = JSON.parse(File.read(json_file))
   end
 
+  def get_base_value
+    @json_file['base']
+  end 
+
+  def get_date_string
+    @json_file['date']
+  end 
+
+  def get_rates_number
+    @json_file['rates'].count
+  end 
+
   
-
-
+  
 
 end
